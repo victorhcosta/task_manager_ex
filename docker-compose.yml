@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: 'postgres_taskmanager'
+    networks:
+      taskmanagernetwork:
+    environment:
+      POSTGRES_USER: "${POSTGRES_USERNAME}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    ports:
+      - '${POSTGRES_PORT}:${POSTGRES_PORT}'
+    volumes:
+      - postgres:/var/taskmanager/postgres/data
+  mail:
+    container_name: 'mail_taskmanager'
+    image: mailhog/mailhog
+    networks:
+      - taskmanagernetwork
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+networks:
+  taskmanagernetwork:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local
