@@ -1,4 +1,4 @@
-defmodule TaskManagerWeb.AccountsJSON do
+defmodule TaskManagerWeb.UsersJSON do
   import TaskManagerWeb.Gettext
 
   def render("created.json", %{user: user}) do

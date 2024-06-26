@@ -9,6 +9,8 @@ defmodule TaskManagerWeb.UsersController do
 
   def register_user(conn, params) do
     with {:ok, %User{} = user} <- TaskManager.create_user(params) do
+      TaskManager.Emails.UserNotifier.welcome_email(user)
+
       conn
       |> put_status(:ok)
       |> render("created.json", %{user: user})

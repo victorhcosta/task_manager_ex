@@ -44,7 +44,14 @@ config :task_manager, TaskManagerWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :task_manager, TaskManager.Mailer, adapter: Swoosh.Adapters.Local
+config :task_manager, TaskManager.Mailer,
+  adapter: Swoosh.Adapters.SMTP,
+  relay: "localhost",
+  port: 1025,
+  username: "",
+  passowrd: "",
+  tls: :never,
+  aut: :never
 
 config :task_manager, TaskManager.ElixirApiJwt.Guardian,
     issuer: "task_manager",
