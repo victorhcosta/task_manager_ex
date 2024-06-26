@@ -23,7 +23,7 @@ The idea is to create an application to manage tasks efficiently, leveraging var
 - [ ] It should be able to authenticate using social networks.
 - [ ] It should be able to recover password using email.
 - [ ] It should be able to change email.
-- [ ] It should be able to create an account (email, name, and password).
+- [ x ] It should be able to create an account (email, name, and password).
 - [ ] It should support refresh tokens for session management.
 - [ ] It should support logout functionality.
 
@@ -58,7 +58,7 @@ The idea is to create an application to manage tasks efficiently, leveraging var
 * Clone the repository.
 * Creat a .env file and fill in using .env.example as base.
 * Install dependencies with `mix deps.get`.
-* Set up the database with `mix ecto.setup`.
+* Set up the database with `mix ecto.setup` or run `mix ecto.create && mix ecto.migrate` if don't want to seed the database.
 * Start the Phoenix server with `mix phx.server`.
 * Access the application at [http://localhost:4000](http://localhost:4000).
 

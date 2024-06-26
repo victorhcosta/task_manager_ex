@@ -1,0 +1,4 @@
+#: lib/task_manager_web/views/accounts_view.ex:6
+#, elixir-autogen, elixir-format
+msgid "User registred with success"
+msgstr "Usuário cadastrado com sucesso"
