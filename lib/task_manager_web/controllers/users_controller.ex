@@ -9,19 +9,22 @@ defmodule TaskManagerWeb.UsersController do
 
   def register_user(conn, params) do
     with {:ok, %User{} = user} <- TaskManager.create_user(params) do
-      TaskManager.Emails.UserNotifier.welcome_email(user)
+      TaskManager.Emails.UserNotifier.welcome(user)
 
       conn
-      |> put_status(:ok)
+      |> put_status(:created)
       |> render("created.json", %{user: user})
     end
   end
 
-  def recover_password(conn, _params) do
-    conn
-    |> put_status(:not_implemented)
-    |> put_view(ErrorJSON)
-    |> render("error.json", %{message: "/api/user/forgot_password Not implemented yet"})
+  def recover_password(conn, %{"email" => email}) do
+    with {:ok, %User{} = user, updated_password} <- TaskManager.recover_password(email) do
+      TaskManager.Emails.UserNotifier.reset_password(user, updated_password)
+
+      conn
+      |> put_status(:ok)
+      |> render("recover_password.json", %{})
+    end
   end
 
   def update_password(conn, _params) do

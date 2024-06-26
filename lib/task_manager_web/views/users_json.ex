@@ -7,4 +7,7 @@ defmodule TaskManagerWeb.UsersJSON do
       user: user
     }
   end
+
+  def render("recover_password.json", _), do:
+    %{message: gettext("Updated password sent for your email")}
 end

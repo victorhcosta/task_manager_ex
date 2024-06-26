@@ -37,7 +37,7 @@ defmodule TaskManager.MixProject do
       {:ecto_sql, "~> 3.10"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_live_dashboard, "~> 0.8.3"},
-      {:swoosh, "~> 1.5"},
+      {:swoosh, "~> 1.16"},
       {:finch, "~> 0.13"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
@@ -48,6 +48,7 @@ defmodule TaskManager.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:bcrypt_elixir, "~> 3.1"},
       {:guardian, "~> 2.3"},
+      {:gen_smtp, "~> 1.2"}
     ]
   end
 

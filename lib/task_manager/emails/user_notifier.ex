@@ -6,7 +6,7 @@ defmodule TaskManager.Emails.UserNotifier do
   alias TaskManager.Mailer
   alias TaskManager.Emails.RenderTemplate
 
-  def welcome_email(user) do
+  def welcome(user) do
     assigns = %{name: user.name}
 
     html_body = RenderTemplate.render_template("welcome", assigns)

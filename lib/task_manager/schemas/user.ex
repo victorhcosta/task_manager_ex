@@ -30,6 +30,15 @@ defmodule TaskManager.Schemas.User do
     |>put_password_hash()
   end
 
+  def password_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:password])
+    |> validate_required([:password])
+    |> validate_length(:password, min: 6)
+    |> put_password_hash()
+  end
+
+
   defp put_password_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
     changeset
     |>put_change(:password_hash, Bcrypt.hash_pwd_salt(password))

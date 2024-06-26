@@ -1,4 +1,14 @@
-#: lib/task_manager_web/views/accounts_view.ex:6
+#: lib/task_manager_web/views/users_json.ex:6
 #, elixir-autogen, elixir-format
 msgid "User registred with success"
 msgstr "Usuário cadastrado com sucesso"
+
+#: lib/task_manager/user/recover_password.ex:10
+#, elixir-autogen, elixir-format
+msgid "Doesn't exist registered user with this email"
+msgstr "Não existe usuário cadastrado com o e-mail informado"
+
+#: lib/task_manager_web/views/users_json.ex:11
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Updated password sent for your email"
+msgstr "Senha atualizada enviada para o e-mail cadastrado"
