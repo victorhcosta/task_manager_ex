@@ -53,9 +53,13 @@ config :task_manager, TaskManager.Mailer,
   tls: :never,
   aut: :never
 
-config :task_manager, TaskManager.ElixirApiJwt.Guardian,
-    issuer: "task_manager",
-    secret_key: System.get_env("JWT_SECRET")
+config :task_manager, TaskManager.Guardian,
+  issuer: "task_manager",
+  secret_key: System.get_env("JWT_SECRET"),
+  token_ttl: %{
+    "access" => {System.get_env("JWT_ACCESS_EXPIRES_IN", "1800"), :seconds},
+    "refresh" => {System.get_env("JWT_REFRESH_ACCESS_EXPIRES_IN", "3600"), :seconds}
+  }
 
 # Configures Elixir's Logger
 config :logger, :console,

@@ -9,6 +9,10 @@ defmodule TaskManager do
   alias TaskManager.User.Create, as: CreateUser
   alias TaskManager.User.RecoverPassword
 
+  alias TaskManager.Accounts.Authenticate
+
   defdelegate create_user(params), to: CreateUser, as: :call
   defdelegate recover_password(params), to: RecoverPassword, as: :call
+
+  defdelegate authenticate(params), to: Authenticate, as: :call
 end

@@ -100,3 +100,13 @@ msgstr "deve ser maior ou igual a %{number}"
 
 msgid "must be equal to %{number}"
 msgstr "deve ser igual a %{number}"
+
+#: lib/task_manager/user/recover_password.ex:10
+#, elixir-autogen, elixir-format
+msgid "Doesn't exist registered user with this email"
+msgstr "Não existe usuário cadastrado com esse e-mail"
+
+#: lib/task_manager/accounts/authenticate.ex:17
+#, elixir-autogen, elixir-format
+msgid "User not found"
+msgstr "Usuário não encontrado"

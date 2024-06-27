@@ -7,7 +7,7 @@ defmodule TaskManager.User.RecoverPassword do
 
   def call(email) do
     case Repo.get_by(User, email: email) do
-      nil -> {:error, %{result: gettext("Doesn't exist registered user with this email"), status: :not_found}}
+      nil -> {:error, %{result: dgettext("errors", "Doesn't exist registered user with this email"), status: :not_found}}
       user ->
         updated_password = generate_random_password()
 

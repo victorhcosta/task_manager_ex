@@ -107,3 +107,13 @@ msgstr ""
 
 msgid "must be equal to %{number}"
 msgstr ""
+
+#: lib/task_manager/user/recover_password.ex:10
+#, elixir-autogen, elixir-format
+msgid "Doesn't exist registered user with this email"
+msgstr ""
+
+#: lib/task_manager/accounts/authenticate.ex:17
+#, elixir-autogen, elixir-format
+msgid "User not found"
+msgstr ""

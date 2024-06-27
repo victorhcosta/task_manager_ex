@@ -6,6 +6,16 @@ defmodule TaskManagerWeb.Router do
     plug TaskManagerWeb.Plugs.Locale
   end
 
+  pipeline :api_auth do
+    plug :accepts, ["json"]
+    plug TaskManagerWeb.Plugs.Locale
+    plug Guardian.Plug.Pipeline,
+      module: TaskManager.Guardian,
+      error_handler: TaskManagerWeb.AuthErrorHandler
+
+    plug TaskManagerWeb.Plugs.AuthenticatePlug
+  end
+
   scope "/api", TaskManagerWeb do
     pipe_through :api
 
@@ -14,19 +24,22 @@ defmodule TaskManagerWeb.Router do
     post "/logout", AccountsController, :logout
   end
 
-
   scope "/api/user", TaskManagerWeb do
     pipe_through :api
 
     post "/register", UsersController, :register_user
     post "/forgot_password", UsersController, :recover_password
+  end
+
+  scope "/api/user", TaskManagerWeb do
+    pipe_through :api_auth
+
     patch "/update_password", UsersController, :update_password
     patch "/update_email", UsersController, :update_email
   end
 
-
   scope "/api/task", TaskManagerWeb do
-    pipe_through :api
+    pipe_through :api_auth
 
     post "/create", TasksController, :create
     put "/update", TasksController, :update

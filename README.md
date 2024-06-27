@@ -19,9 +19,9 @@ The idea is to create an application to manage tasks efficiently, leveraging var
 ### Features
 
 #### Authentication
-- [ ] It should be able to authenticate using email & password.
+- [ x ] It should be able to authenticate using email & password.
 - [ ] It should be able to authenticate using social networks.
-- [ ] It should be able to recover password using email.
+- [ x ] It should be able to recover password using email.
 - [ ] It should be able to change email.
 - [ x ] It should be able to create an account (email, name, and password).
 - [ ] It should support refresh tokens for session management.

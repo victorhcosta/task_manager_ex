@@ -6,11 +6,12 @@ defmodule TaskManagerWeb.AccountsController do
 
   action_fallback FallbackController
 
-  def authenticate(conn, _params) do
-    conn
-    |>put_status(:not_implemented)
-    |>put_view(ErrorJSON)
-    |>render("error.json", %{message: "/api/login Not implemented yet"})
+  def authenticate(conn, params) do
+    with {:ok, _user, token, refresh_token} <- TaskManager.authenticate(params) do
+      conn
+      |>put_status(:ok)
+      |>render("authenticated.json", %{token: token, refresh_token: refresh_token})
+    end
   end
 
   def revalidate(conn, _params) do
