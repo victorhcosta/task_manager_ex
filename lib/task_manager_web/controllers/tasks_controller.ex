@@ -29,11 +29,12 @@ defmodule TaskManagerWeb.TasksController do
     |>render("error.json", %{message: "/api/task/delete Not implemented yet"})
   end
 
-  def get_task(conn, _params) do
-    conn
-    |>put_status(:not_implemented)
-    |>put_view(ErrorJSON)
-    |>render("error.json", %{message: "/api/task/get_task Not implemented yet"})
+  def get_task(conn, %{"task_id" => task_id}) do
+    with {:ok, task} <- TaskManager.get_task_by_id(task_id) do
+      conn
+      |>put_status(:ok)
+      |>render("get_task.json", task: task)
+    end
   end
 
   def get_user_tasks(conn, _params) do

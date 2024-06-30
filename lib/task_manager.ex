@@ -11,8 +11,9 @@ defmodule TaskManager do
 
   alias TaskManager.Accounts.Authenticate
 
-  alias TaskManager.Tasks.{List}
   alias TaskManager.Tasks.Create, as: CreateTask
+  alias TaskManager.Tasks.List, as: ListUserTasks
+  alias TaskManager.Tasks.Get, as: GetTaskDetails
 
   defdelegate create_user(user), to: CreateUser, as: :call
   defdelegate recover_password(email), to: RecoverPassword, as: :call
@@ -20,5 +21,6 @@ defmodule TaskManager do
   defdelegate authenticate(params), to: Authenticate, as: :call
 
   defdelegate create_task(task, user_id), to: CreateTask, as: :call
-  defdelegate get_user_tasks(user_id), to: List, as: :call
+  defdelegate get_user_tasks(user_id), to: ListUserTasks, as: :call
+  defdelegate get_task_by_id(task_id), to: GetTaskDetails, as: :call
 end

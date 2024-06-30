@@ -44,7 +44,7 @@ defmodule TaskManagerWeb.Router do
     post "/create", TasksController, :create
     put "/update", TasksController, :update
     delete "/delete", TasksController, :delete
-    get "/get_task", TasksController, :get_task
+    get "/details/:task_id", TasksController, :get_task
     get "/get_user_tasks", TasksController, :get_user_tasks
   end
 

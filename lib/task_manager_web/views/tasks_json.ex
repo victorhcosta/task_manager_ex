@@ -10,6 +10,18 @@ defmodule TaskManagerWeb.TasksJSON do
     }
   end
 
+  def render("get_task.json", %{task: task}) do
+    %{
+      task_id: task.task_id,
+      title: task.title,
+      description: task.description,
+      status: task.status,
+      user_id: task.user_id,
+      create_at: task.inserted_at,
+      updated_at: task.updated_at
+    }
+  end
+
   def render("list.json", %{tasks: tasks}) do
 
     %{tasks: render_many(tasks)}
@@ -23,11 +35,7 @@ defmodule TaskManagerWeb.TasksJSON do
     %{
       task_id: task.task_id,
       title: task.title,
-      description: task.description,
       status: task.status,
-      user_id: task.user_id,
-      inserted_at: task.inserted_at,
-      updated_at: task.updated_at
     }
   end
 end
