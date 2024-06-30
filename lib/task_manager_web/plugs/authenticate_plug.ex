@@ -15,7 +15,7 @@ defmodule TaskManagerWeb.Plugs.AuthenticatePlug do
       nil -> unauthorized(conn)
       token ->
         case Guardian.decode_and_verify(token) do
-          {:ok, claims} -> assign(conn, :current_user, fetch_user_from_claims(claims))
+          {:ok, claims} -> assign(conn, :user_id, fetch_user_from_claims(claims, "user_id"))
           {:error, _reason} -> unauthorized(conn)
         end
     end
@@ -34,13 +34,7 @@ defmodule TaskManagerWeb.Plugs.AuthenticatePlug do
     end
   end
 
-  defp fetch_user_from_claims(claims) do
-    user_id = claims |> Map.get("user_id")
-    name = claims |> Map.get("name")
-    email = claims |> Map.get("email")
-
-    {user_id, name, email}
-  end
+  defp fetch_user_from_claims(claims, key), do: claims |> Map.get(key)
 
   defp unauthorized(conn) do
     conn

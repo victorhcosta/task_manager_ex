@@ -34,7 +34,7 @@ The idea is to create an application to manage tasks efficiently, leveraging var
 - [ ] Implement role-based access control (RBAC).
 
 #### Task Management
-- [ ] It should be able to create a new task.
+- [ x ] It should be able to create a new task.
 - [ ] It should be able to read details of a task.
 - [ ] It should be able to update an existing task.
 - [ ] It should be able to delete a task.

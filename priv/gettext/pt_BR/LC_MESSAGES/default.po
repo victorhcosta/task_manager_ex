@@ -12,3 +12,8 @@ msgstr "Senha atualizada enviada para o e-mail cadastrado"
 #, elixir-autogen, elixir-format
 msgid "Token generated with success"
 msgstr "Token gerado com sucesso"
+
+#: lib/task_manager_web/views/tasks_json.ex:8
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Task created with success"
+msgstr "Tarefa criada com sucesso"

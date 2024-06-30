@@ -25,3 +25,8 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgid "Token generated with success"
 msgstr ""
+
+#: lib/task_manager_web/views/tasks_json.ex:8
+#, elixir-autogen, elixir-format
+msgid "Task created with success"
+msgstr ""
